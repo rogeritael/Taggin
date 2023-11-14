@@ -6,29 +6,29 @@
     4. landing-page
 */
 
-import { Tags } from "./tags"
+import { tags } from "./tags"
 const bucket = 'src/db/buckets'
 
 export const images = [
     {
         name: 'dog',
         path: `${bucket}/image_processing20200727-8706-nri4fx.png`,
-        tags: [Tags[2], Tags[4]],
+        tags: [tags[2], tags[4]],
     },
     {
         name: 'arrival',
         path: `${bucket}/arrival.png`,
-        tags: [Tags[0], Tags[1]],
+        tags: [tags[0], tags[1]],
     },
     {
         name: 'attachment',
         path: `${bucket}/attachment.jpg`,
-        tags: [Tags[4], Tags[3]],
+        tags: [tags[4], tags[3]],
     },
     {
         name: 'game',
         path: `${bucket}/e1e7dfcbf6c43c14b71e857d4c81752d.png`,
-        tags: [Tags[1], Tags[2]],
+        tags: [tags[1], tags[2]],
     },
 ]
 

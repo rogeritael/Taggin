@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Category } from "../../components/Category";
 import { CategoryList } from "../../components/CategoryList";
 import { Feed } from "../../components/Feed";
@@ -6,17 +7,29 @@ import { Header } from "../../components/Header";
 import { Search } from "../../components/Search";
 
 import { images } from "../../db/images";
+import { tags } from "../../db/tags";
+import { findByTag } from "../../functions/findByTag";
 
 export function Home(){
+    const [appImages, setAppImages] = useState(images)
+
+
+    function handleSelectCategory(category){
+        const result = findByTag(category)
+        setAppImages(result)
+    }
+
+
     return (
         <main id="Home">
             <Header />
             <CategoryList>
-                <Category title='importados' />
-                <Category title='carros-pretos' />
+                {tags.map((tag) => (
+                    <Category title={tag} clickAction={() => handleSelectCategory(tag)} />
+                ))}
             </CategoryList>
             <Feed>
-                {images.map((image) => (
+                {appImages.map((image) => (
                     <FeedImage url={image.path} name={image.name}/>
                 ))}
             </Feed>

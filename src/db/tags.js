@@ -1,7 +1,7 @@
-export const Tags = [
+export const tags = [
     'mobile',
-    'dart-heme',
-    'light-heme',
+    'dark-theme',
+    'light-theme',
     'animation',
     'landing-page',
 ]

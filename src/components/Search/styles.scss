@@ -26,8 +26,11 @@
         border-radius: 40px;
         position: relative;
         margin-left: -90px;
+        transition: 200ms;
 
         &:hover {
+            scale: 1.05;
+
             svg {
                 opacity: 0.8;
             }
