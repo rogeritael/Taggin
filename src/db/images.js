@@ -7,7 +7,7 @@
 */
 
 import { Tags } from "./tags"
-const bucket = '../bucket'
+const bucket = 'src/db/buckets'
 
 export const images = [
     {
@@ -27,7 +27,7 @@ export const images = [
     },
     {
         name: 'game',
-        path: `${buckets}/e1e7dfcbf6c43c14b71e857d4c81752d.png`,
+        path: `${bucket}/e1e7dfcbf6c43c14b71e857d4c81752d.png`,
         tags: [Tags[1], Tags[2]],
     },
 ]

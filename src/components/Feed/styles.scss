@@ -1,0 +1,9 @@
+#feed {
+    padding-top: 40px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    gap: 20px;
+    max-width: calc((20vw * 3) + 42px);
+}
