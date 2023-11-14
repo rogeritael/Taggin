@@ -9,6 +9,7 @@ import { Search } from "../../components/Search";
 import { images } from "../../db/images";
 import { tags } from "../../db/tags";
 import { findByTag } from "../../functions/findByTag";
+import { search } from "../../functions/search";
 
 export function Home(){
     const [appImages, setAppImages] = useState(images)
@@ -16,6 +17,11 @@ export function Home(){
 
     function handleSelectCategory(category){
         const result = findByTag(category)
+        setAppImages(result)
+    }
+
+    function handleSearch(term){
+        const result = search(term)
         setAppImages(result)
     }
 
@@ -33,7 +39,7 @@ export function Home(){
                     <FeedImage url={image.path} name={image.name}/>
                 ))}
             </Feed>
-            <Search />
+            <Search action={handleSearch} />
         </main> //floating search
     )
 }

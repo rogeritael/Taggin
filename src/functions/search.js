@@ -1,4 +1,6 @@
-export function search({term}){
+import { images } from "../db/images";
+
+export function search(term){
     return images.filter(image => {
         const lowerCaseQuery = term.toLowerCase();
         return (
