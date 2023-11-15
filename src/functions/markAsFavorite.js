@@ -1,13 +1,20 @@
 export function markAsFavorite(image){
-    const storedImages = JSON.parse(localStorage.getItem('favorites'))
 
-    if(storedImages.find((stored) => stored.name === image.name)){
-        const updatedImages = storedImages.filter((stored) => stored.image !== image.name)
+    if(JSON.parse(localStorage.getItem('favorites')) === null){
+        localStorage.setItem('favorites', JSON.stringify([image]))
+        return
+    }
+
+    const storedImages = JSON.parse(localStorage.getItem('favorites')) || []
+    const isAlreadyStored = storedImages.find((stored) => stored.path === image.path)
+    
+    if(isAlreadyStored){
+        const updatedImages = storedImages.filter((stored) => stored.path !== image.path)
         localStorage.setItem('favorites', JSON.stringify(updatedImages))
         return
     }
 
-    const updatedImages = storedImages.push(image)
+    const updatedImages = [...storedImages, image ]
     localStorage.setItem('favorites', JSON.stringify(updatedImages))
 
 }

@@ -1,11 +1,119 @@
+@keyframes like {
+    50% {
+        font-size: 0;
+        opacity: 0;
+    }
+    80% {
+        font-size: 40px;
+        opacity: 1;
+        fill: #990F02;
+        // background-color: #990F02;
+    }
+    99% {
+        pointer-events: none;
+    }
+    100% {
+        font-size: 32px;
+        opacity: 1;
+        fill: #990F02;
+        pointer-events: all;
+    }
+}
+
+@keyframes background_like {
+
+    100% {
+        width: 200%;
+        height: 200%;
+        opacity: 0;
+    }
+}
+
 #feed_image {
     width: 20vw;
     height: 20vw;
     background-color: #333;
+    position: relative;
+
+    .mask {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        transition: 300ms;
+        opacity: 0;
+        overflow: hidden;
+
+        &::after {
+            content: '';
+            width: 0;
+            height: 0;
+            background-color: #990F0220;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            border-radius: 50%;
+        }
+
+        &.isLiked {
+            svg {
+                animation: like 1000ms forwards;
+            }
+
+            &::after {
+                animation: background_like 800ms ease-in-out forwards;
+            }
+        }
+
+        .background {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #333;
+            opacity: 0;
+        }
+
+        p {
+            color: #fff;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+    
+        svg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 32px;
+            z-index: 1;
+            cursor: pointer;
+            transition: 400ms;
+            fill: #ffffff;
+            
+
+            &:hover {
+                font-size: 36px;
+                // fill: #990F02;
+            }
+        }
+    }
 
     &:hover {
-        img {
+        img, .mask {
             scale: 1.05;
+        }
+
+        .mask {
+            opacity: 1;
+
+            .background {
+                opacity: 0.2;
+            }
         }
     }
 

@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import { Home } from './pages/Home/index.jsx'
+import { Favorites } from './pages/Favorites/index.jsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const router = createBrowserRouter([
@@ -14,7 +15,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/favoritos',
-        element: <Home />
+        element: <Favorites />
       },
     ]
   }
